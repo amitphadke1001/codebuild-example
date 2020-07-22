@@ -15,7 +15,7 @@ phases:
     commands:
       - echo COE-POC starting build phase...
       #- mvn test     
-      - mvn sonar:sonar -Dsonar.login=$LOGIN -Dsonar.host.url=$HOST -Dsonar.projectKey=$Project -Dsonar.organization=$Organization
+      - mvn sonar:sonar -Dsonar.login=2d0b4ec9e71118eab92b4caa34d11e53fb19a26f -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=amitphadke1001_codebuild-example -Dsonar.organization=amitphadke1001
       - sleep 5
       - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
       - cat result.json
