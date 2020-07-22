@@ -1,12 +1,12 @@
 version: 0.2
 
+env:
+  secrets-manager:
+    LOGIN: prod/sonar:sonartoken
+    HOST: prod/sonar:HOST
+    Organization: prod/sonar:Organization
+    Project: prod/sonar:Project
 phases:
-  env:
-    secrets-manager:
-      LOGIN: prod/sonar:sonartoken
-      HOST: prod/sonar:HOST
-      Organization: prod/sonar:Organization
-      Project: prod/sonar:Project
   pre_build:
     commands:
       - apt-get update
