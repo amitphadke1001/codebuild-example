@@ -7,7 +7,7 @@ env:
     Organization: sonar:Organization
     Project: sonar:Project
 phases:
-  install:
+  #install:
       #runtime-versions:
         #java: corretto8
   pre_build:
