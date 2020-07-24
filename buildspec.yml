@@ -1,0 +1,28 @@
+version: 0.2
+
+env:
+  secrets-manager:
+    LOGIN: sonar:sonartoken
+    HOST: sonar:HOST
+    Organization: sonar:Organization
+    Project: sonar:Project
+phases:
+  install:
+      #runtime-versions:
+        #java: corretto8
+  pre_build:
+    commands:
+      -export SONAR_SCANNER_VERSION=4.4.0.2170
+      -export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux
+      -curl --create-dirs -sSLo $HOME/.sonar/sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SONAR_SCANNER_VERSION-linux.zip
+      -unzip -o $HOME/.sonar/sonar-scanner.zip -d $HOME/.sonar/
+      -export PATH=$SONAR_SCANNER_HOME/bin:$PATH
+      -export SONAR_SCANNER_OPTS="-server"
+  build:
+    commands:
+      -sonar-scanner \
+        -Dsonar.organization=amitphadke1001 \
+        -Dsonar.projectKey=pocproject \
+        -Dsonar.sources=. \
+        -Dsonar.host.url=https://sonarcloud.io \
+        -Dsonar.login=132c569613bc8ef758067aa2311114e16bd31fb6
