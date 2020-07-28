@@ -54,10 +54,11 @@ phases:
       - echo Build started on `date`
       - echo Installing composer deps
       - composer install --no-progress --no-suggest
-      - sonar-scanner -Dsonar.organization=amitphadke1001 -Dsonar.projectKey=pocproject -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=132c569613bc8ef758067aa2311114e16bd31fb6
+     # - sonar-scanner -Dsonar.organization=amitphadke1001 -Dsonar.projectKey=pocproject -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=132c569613bc8ef758067aa2311114e16bd31fb6
   post_build:
      commands:
        - echo Build completed on `date`
        # Run your tests
        - ./vendor/bin/phpunit --coverage-html coverage
+       - sonar-scanner -Dsonar.organization=amitphadke1001 -Dsonar.projectKey=pocproject -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=132c569613bc8ef758067aa2311114e16bd31fb6
        
