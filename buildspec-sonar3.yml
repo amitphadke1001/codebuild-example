@@ -60,4 +60,4 @@ phases:
        - echo Build completed on `date`
        # Run your tests
        - ./vendor/bin/phpunit --coverage-html coverage
-       - aws s3 sync --delete  coverage/ "s3://${COVERAGE_S3_BUCKET}/coverage"
+       
