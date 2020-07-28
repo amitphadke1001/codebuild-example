@@ -8,7 +8,7 @@ env:
     Project: sonar:Project
 phases:
   install:
-  commands:
+    commands:
       - |
          export DEBIAN_FRONTEND=noninteractive
          #Install php7.1
