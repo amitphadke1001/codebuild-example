@@ -69,5 +69,5 @@ phases:
        #- if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
        - |-
           if [ $(jq -r '.projectStatus.status' result.json) = ERROR ]; then
-            echo "run my command"
+            $CODEBUILD_BUILD_SUCCEEDING -eq 0
           fi
