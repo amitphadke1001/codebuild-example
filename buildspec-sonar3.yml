@@ -60,5 +60,5 @@ phases:
        - echo Build completed on `date`
        # Run your tests
        - ./vendor/bin/phpunit --coverage-xml coverage
-       - sonar-scanner -Dsonar.organization=amitphadke1001 -Dsonar.projectKey=pocproject -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=132c569613bc8ef758067aa2311114e16bd31fb6 -Dsonar.php.coverage.reportPath=\"coverage/index.xml\"
+       - sonar-scanner -Dsonar.organization=amitphadke1001 -Dsonar.projectKey=pocproject -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=132c569613bc8ef758067aa2311114e16bd31fb6 -Dsonar.php.coverage.reportPath=\"codeCoverage/coverage.xml\"
        
