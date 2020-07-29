@@ -62,4 +62,8 @@ phases:
        - ./vendor/bin/phpunit --coverage-html coverage
        - aws s3 sync --delete  coverage/ "s3://${COVERAGE_S3_BUCKET}/coverage"
        - sonar-scanner -Dsonar.organization=amitphadke1001 -Dsonar.projectKey=pocproject -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=132c569613bc8ef758067aa2311114e16bd31fb6 
-       
+       - sleep 5
+       - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
+       - cat result.json
+       - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
+
