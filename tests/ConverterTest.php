@@ -1,6 +1,6 @@
 <?php
 
-namespace SitePoint\Converter;
+namespace Converter;
 use PHPUnit\Framework\TestCase;
 
 class ConverterTest extends TestCase
@@ -13,7 +13,7 @@ class ConverterTest extends TestCase
             'key' => 'value',
             'key2' => 'value2'
         ];
-        $converter = new \SitePoint\Converter\Converter();
+        $converter = new \Converter\Converter();
         $this->assertEquals($output, $converter->convertString($input));
     }
 }
