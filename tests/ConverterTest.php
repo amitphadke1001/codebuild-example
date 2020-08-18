@@ -13,7 +13,7 @@ class ConverterTest extends TestCase
             'key' => 'value',
             'key2' => 'value2'
         ];
-        $converter = new \Converter\Converter();
+        $converter = new Converter\Converter();
         $this->assertEquals($output, $converter->convertString($input));
     }
 }
