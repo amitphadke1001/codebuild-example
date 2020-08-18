@@ -36,7 +36,7 @@ phases:
                   unzip
          #Enable xdebug - phpunit uses this for code coverage
          phpenmod xdebug
-         php -dzend_extension=xdebug.so phpunit.phar --configuration phpunit.xml --coverage-clover phpunit.coverage.xml --log-junit phpunit.report.xml
+         #php -dzend_extension=xdebug.so phpunit.phar --configuration phpunit.xml --coverage-clover phpunit.coverage.xml --log-junit phpunit.report.xml
          #Install composer
          php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
          php composer-setup.php ;
@@ -62,11 +62,11 @@ phases:
        - echo Build completed on `date`
        # Run your tests
        # - ./vendor/bin/phpunit --coverage-html coverage 
-       - ./vendor/bin/phpunit --coverage-clover coverage
+       - ./vendor/bin/phpunit --coverage-clover reports.xml
        # - aws s3 sync --delete  coverage/ "s3://${COVERAGE_S3_BUCKET}/coverage"
        
        #- sonar-scanner -Dsonar.organization=amitphadke1001 -Dsonar.projectKey=pocproject -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=132c569613bc8ef758067aa2311114e16bd31fb6 -Dsonar.php.coverage.reportPaths=\"coverage/index.xml\"  -Dsonar.php.tests.reportPath=\"coverage/test.xml\"
-       - sonar-scanner -Dsonar.organization=amitphadke1001 -Dsonar.projectKey=pocproject -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=132c569613bc8ef758067aa2311114e16bd31fb6 
+       - sonar-scanner -Dsonar.organization=amitphadke1001 -Dsonar.projectKey=pocproject -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=132c569613bc8ef758067aa2311114e16bd31fb6 -Dsonar.php.coverage.reportPaths=reports.xml
        
        # -Dsonar.php.coverage.reportPaths=\"codeCoverage/coverage.xml\"
        - sleep 5
