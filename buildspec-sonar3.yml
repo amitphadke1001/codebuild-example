@@ -36,6 +36,7 @@ phases:
                   unzip
          #Enable xdebug - phpunit uses this for code coverage
          phpenmod xdebug
+         php -dzend_extension=xdebug.so phpunit.phar --configuration phpunit.xml --coverage-clover phpunit.coverage.xml --log-junit phpunit.report.xml
          #Install composer
          php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
          php composer-setup.php ;
