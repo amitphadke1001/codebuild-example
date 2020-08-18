@@ -1,6 +1,6 @@
 <?php
 
-namespace SitePoint\Converter;
+namespace Converter;
 
 class Converter
 {
